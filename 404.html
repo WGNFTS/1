@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="W.G.NFTS - Compre e venda NFTs">
+	<title>W.G.NFTS</title>
+	<style>
+		:root {
+			--primary-color: #333;
+			--secondary-color: #f2f2f2;
+			--border-radius: 5px;
+			--box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+		}
+
+		body {
+			font-family: Arial, sans-serif;
+			margin: 0;
+			padding: 0;
+		}
+
+		header {
+			background-color: var(--primary-color);
+			color: #fff;
+			padding: 20px;
+			text-align: center;
+		}
+
+		
+nav {
+  background-color: var(--secondary-color);
+  padding: 10px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+nav a {
+  color: var(--primary-color);
+  display: inline-block;
+  margin: 0 10px;
+  text-decoration: none;
+  padding: 5px 10px;
+  border-radius: var(--border-radius);
+  transition: all 0.3s ease;
+}
+
+nav a:hover {
+  color: #fff;
+  background-color: var(--primary-color);
+}
+
+@media only screen and (max-width: 600px) {
+  nav {
+    flex-direction: column;
+  }
+
+  nav a {
+    margin: 10px 0;
+  }
+
+		section {
+			padding: 50px;
+			text-align: center;
+		}
+
+		section:nth-child(even) {
+			background-color: var(--secondary-color);
+		}
+
+		section h2 {
+			margin-bottom: 20px;
+		}
+
+		footer {
+			background-color: var(--primary-color);
+			color: #fff;
+			padding: 20px;
+			text-align: center;
+		}
+
+		
+.image-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-gap: 20px;
+  justify-items: center;
+  align-items: center;
+  padding: 20px; /* Adiciona uma margem interna para as imagens */
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+}
+
+/* Adiciona imagens diferentes para diferentes tamanhos de tela */
+@media only screen and (max-width: 600px) {
+  .image-container img {
+    content: "";
+    background-image: url("https://via.placeholder.com/400x400");
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@media only screen and (min-width: 601px) and (max-width: 1200px) {
+  .image-container img {
+    content: "";
+    background-image: url("https://via.placeholder.com/600x600");
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@media only screen and (min-width: 1201px) {
+  .image-container img {
+    content: "";
+    background-image: url("https://via.placeholder.com/800x800");
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+  }
+}
+		.wallet-container {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			align-items: center;
+		}
+
+		.wallet-container img {
+			width: 50px;
+			height: 50px;
+			margin: 10px;
+			border-radius: var(--border-radius);
+			box-shadow: var(--box-shadow);
+		}
+	</style>
+</head>
+<body>
+	<header>
+		<h1>W.G.NFTS</h1>
+	</header>
+
+	<nav>
+		<a href="#">Início</a>
+		<a href="#">Comprar</a>
+		<a href="#">Vender</a>
+		<a href="#">Minha Conta</a>
+		<a href="#" onclick="connectWallet()">Conectar Wallet</a>
+	</nav>
+
+	<section>
+		<h2>Bem-vindo ao W.G. NFTS</h2>
+		<div class="image-container">
+			<img src="https://via.placeholder.com/200x200" alt="Imagem 1">
+			<img src="https://via.placeholder.com/200x200" alt="Imagem 2">
+			<img src="https://via.placeholder.com/200x200" alt="Imagem 3">
+			<img src="https://via.placeholder.com/200x200" alt="Imagem 4">
+			<img src="https://via.placeholder.com/200x200" alt="Imagem 5">
+		</div>
+	</section>
+
+	<section>
+		<h2>Compre NFTs</h2>
+		<p>Veja os NFTs disponíveis para compra e adicione-os ao seu carrinho.</p>
+	</section>
+
+	<section>
+		<h2>Venda NFTs</h2>
+		<div class="form-container">
+			<form>
+				<label for="nome">Nome do NFT:</label>
+				<input type="text" id="nome" name="nome">
+
+				<label for="imagem">Imagem do NFT:</label>
+				<input type="file" id="imagem" name="imagem">
+
+				<label for="preco">Preço do NFT:</label>
+				<input type="text" id="preco" name="preco">
+
+				<label for="cripto">Criptomoeda:</label>
+				<select id="cripto" name="cripto">
+					<option value="bitcoin">Bitcoin</option>
+					<option value="ethereum">Ethereum</option>
+				</select>
+
+				<label for="pagamento">Forma de Pagamento:</label>
+				<select id="pagamento" name="pagamento">
+					<option value="btc">Bitcoin</option>
+					<option value="eth">Ethereum</option>
+					<option value="mp">Mercado Pago</option>
+				</select>
+
+				<input type="submit" value="Enviar">
+			</form>
+		</div>
+	</section>
+
+	<section>
+		<h2>Adicionar Wallet</h2>
+		<div class="wallet-container">
+			<img src="https://via.placeholder.com/50x50" alt="Coinbase">
+			<img src="https://via.placeholder.com/50x50" alt="MetaMask">
+		</div>
+	</section>
+
+	<section>
+		<h2>Minha Conta</h2>
+		<p>Veja seus NFTs comprados e vendidos, gerencie suas informações de conta e altere sua senha.</p>
+	</section>
+
+	<footer>
+		<p>W.G.NFTS &copy; 2023</p>
+	</footer>
+
+	<script src="https://cdn.jsdelivr.net/npm/web3@1.5.2/dist/web3.min.js"></script>
+<script>
+	// Exemplo de código JavaScript
+	alert("Bem-vindo ao W.G.NFTS!");
+
+	async function connectWallet() {
+		if (typeof window.ethereum !== 'undefined') {
+			try {
+				await window.ethereum.enable();
+				const accounts = await web3.eth.getAccounts();
+				console.log('Conectado à conta ' + accounts[0]);
+			} catch (error) {
+				console.log(error);
+			}
+		} else {
+			console.log('MetaMask ou outra extensão de carteira Ethereum não encontrada.');
+		}
+	}
+</script>
+</body>
+</html>
